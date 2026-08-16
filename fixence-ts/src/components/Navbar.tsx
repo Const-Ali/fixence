@@ -1,6 +1,6 @@
 // src/components/Navbar.tsx
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { Menu, Moon, Sun, X, Settings } from "lucide-react";
 import { useApp } from "../context/AppContext";
 

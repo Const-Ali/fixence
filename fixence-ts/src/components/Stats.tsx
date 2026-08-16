@@ -1,6 +1,7 @@
 // src/components/Stats.tsx
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
+
 import { useApp } from "../context/AppContext";
 import { useCountUp } from "../hooks/useCountUp";
 import { fadeUp, staggerContainer } from "../lib/motion";
