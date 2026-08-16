@@ -24,9 +24,9 @@ export function Hero() {
       >
         <motion.span
           variants={fadeUp}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/60 px-4 py-1.5 text-sm font-semibold text-blue-700 backdrop-blur dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300"
+          className="mb-24 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/60 px-4 py-1.5 text-4xl font-semibold text-blue-700 backdrop-blur dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300"
         >
-          <Wrench className="h-4 w-4" />
+          <Wrench className="h-24 w-32" />
           {t.hero.badge}
         </motion.span>
 

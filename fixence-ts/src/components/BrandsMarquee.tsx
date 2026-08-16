@@ -1,28 +1,58 @@
-// src/components/BrandsMarquee.tsx
+import { content } from "../data/content";
 import { useApp } from "../context/AppContext";
+import { motion } from "motion/react";
 
 export function BrandsMarquee() {
-  const { t } = useApp();
+  const { lang: language } = useApp();
+  const lang = language?.toLowerCase().startsWith("en") ? "en" : "fa";
+  const brands = content[lang].brands.items;
 
   return (
-    <section className="py-14">
-      <p className="mb-8 text-center text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-        {t.brands.title}
-      </p>
-      <div className="relative overflow-hidden" dir="ltr">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent dark:from-slate-950" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent dark:from-slate-950" />
+    <section className="relative w-full overflow-hidden bg-[#020617] py-10">
+      {/* گرادینت‌های کناری برای محو شدن نرم */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-[#020617] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-[#020617] to-transparent" />
 
-        <div className="flex w-max animate-marquee items-center gap-14 px-7">
-          {[...t.brands.items, ...t.brands.items].map((brand, i) => (
-            <span
-              key={`${brand}-${i}`}
-              className="whitespace-nowrap text-2xl font-black tracking-wide text-slate-400 transition hover:text-slate-700 dark:text-slate-600 dark:hover:text-slate-300"
+      {/* بخش حیاتی: کانتینر باید min-w-full داشته باشه */}
+      <div className="flex w-max overflow-hidden">
+        <motion.div
+          className="flex flex-nowrap gap-8 pr-8" // pr-8 باید با gap یکی باشه
+          animate={{ x: ["0%", "-100%"] }}
+          transition={{
+            duration: 30, // اگه خیلی سریع بود، این عدد رو بیشتر کن
+            ease: "linear",
+            repeat: Infinity,
+          }}
+        >
+          {brands.map((brand, index) => (
+            <div
+              key={`b1-${index}`}
+              className="flex shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/[0.03] px-10 py-5 text-xl font-bold tracking-widest text-white/30"
             >
               {brand}
-            </span>
+            </div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* بلوک دوم که دقیقاً پشت سر اولی می‌چسبه */}
+        <motion.div
+          className="flex flex-nowrap gap-8 pr-8"
+          animate={{ x: ["0%", "-100%"] }}
+          transition={{
+            duration: 30,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+        >
+          {brands.map((brand, index) => (
+            <div
+              key={`b2-${index}`}
+              className="flex shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/[0.03] px-10 py-5 text-xl font-bold tracking-widest text-white/30"
+            >
+              {brand}
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

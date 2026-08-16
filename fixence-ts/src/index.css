@@ -8,13 +8,23 @@ html {
 }
 
 body {
-  font-family: Vazirmatn, sans-serif;
+  font-family: "Vazirmatn", sans-serif;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+/* Infinite marquee animation */
 @keyframes marquee {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -24,10 +34,6 @@ body {
   animation: marquee 30s linear infinite;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
-::selection {
-  background: rgba(59, 130, 246, 0.25);
+.brands-marquee {
+  animation: marquee 25s linear infinite;
 }
