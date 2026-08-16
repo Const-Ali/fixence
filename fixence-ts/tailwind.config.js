@@ -3,7 +3,11 @@ export default {
   darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Vazirmatn", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
