@@ -19,7 +19,7 @@ export function BrandsMarquee() {
           className="flex flex-nowrap gap-8 pr-8" // pr-8 باید با gap یکی باشه
           animate={{ x: ["0%", "-100%"] }}
           transition={{
-            duration: 30, // اگه خیلی سریع بود، این عدد رو بیشتر کن
+            duration: 500, // اگه خیلی سریع بود، این عدد رو بیشتر کن
             ease: "linear",
             repeat: Infinity,
           }}
