@@ -1,14 +1,22 @@
 // src/components/Hero.tsx
-import { motion } from "motion/react";
-import { ArrowRight, CheckCircle2, PhoneCall, Wrench } from "lucide-react";
+import type { CSSProperties } from "react";
+import ArrowRight from "lucide-react/dist/esm/icons/arrow-right.mjs";
+import CheckCircle2 from "lucide-react/dist/esm/icons/check-circle-2.mjs";
+import PhoneCall from "lucide-react/dist/esm/icons/phone-call.mjs";
+import Wrench from "lucide-react/dist/esm/icons/wrench.mjs";
 import { useApp } from "../context/AppContext";
-import { fadeUp, staggerContainer } from "../lib/motion";
 
 export function Hero() {
   const { t } = useApp();
+  const revealStyle = (delay: number): CSSProperties =>
+    ({ "--reveal-delay": `${delay}ms` }) as CSSProperties;
 
   return (
-    <section id="hero" className="relative overflow-hidden pt-32 pb-20">
+    <section
+      id="hero"
+      aria-labelledby="hero-title"
+      className="relative overflow-hidden pt-24 pb-20 sm:pt-32"
+    >
       {/* Aurora background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-32 start-1/4 h-96 w-96 rounded-full bg-blue-500/30 blur-3xl" />
@@ -16,41 +24,37 @@ export function Hero() {
         <div className="absolute bottom-0 start-0 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />
       </div>
 
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-        className="mx-auto max-w-4xl px-4 text-center sm:px-6"
-      >
-        <motion.span
-          variants={fadeUp}
-          className="mb-24 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/60 px-4 py-1.5 text-4xl font-semibold text-blue-700 backdrop-blur dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300"
+      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+        <span
+          style={revealStyle(0)}
+          className="hero-reveal mb-8 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/60 px-4 py-1.5 text-sm font-semibold text-blue-700 backdrop-blur dark:border-blue-500/30 dark:bg-blue-500/10 dark:text-blue-300"
         >
-          <Wrench className="h-24 w-32" />
+          <Wrench aria-hidden="true" className="h-4 w-4" />
           {t.hero.badge}
-        </motion.span>
+        </span>
 
-        <motion.h1
-          variants={fadeUp}
-          className="text-4xl font-black leading-tight text-slate-900 md:text-6xl dark:text-white"
+        <h1
+          id="hero-title"
+          style={revealStyle(100)}
+          className="hero-reveal text-4xl font-black leading-tight text-slate-900 md:text-6xl dark:text-white"
         >
           {t.hero.titleStart}{" "}
           <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
             {t.hero.titleHighlight}
           </span>{" "}
           {t.hero.titleEnd}
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          variants={fadeUp}
-          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300"
+        <p
+          style={revealStyle(200)}
+          className="hero-reveal mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 dark:text-slate-300"
         >
           {t.hero.description}
-        </motion.p>
+        </p>
 
-        <motion.div
-          variants={fadeUp}
-          className="mt-10 flex flex-wrap justify-center gap-4"
+        <div
+          style={revealStyle(300)}
+          className="hero-reveal mt-10 flex flex-wrap justify-center gap-4"
         >
           <a
             href={`tel:${t.phone.tel}`}
@@ -66,20 +70,23 @@ export function Hero() {
             {t.hero.secondaryCta}
             <ArrowRight className="h-5 w-5 rtl:rotate-180" />
           </a>
-        </motion.div>
+        </div>
 
-        <motion.ul
-          variants={fadeUp}
-          className="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-600 dark:text-slate-300"
+        <ul
+          style={revealStyle(400)}
+          className="hero-reveal mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-slate-600 dark:text-slate-300"
         >
           {t.hero.trustPoints.map((point) => (
             <li key={point} className="flex items-center gap-1.5">
-              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+              <CheckCircle2
+                aria-hidden="true"
+                className="h-4 w-4 text-emerald-500"
+              />
               {point}
             </li>
           ))}
-        </motion.ul>
-      </motion.div>
+        </ul>
+      </div>
     </section>
   );
 }

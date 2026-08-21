@@ -1,11 +1,10 @@
-// src/data/content.ts
 import type { SiteContent } from "../types";
 
 export const content: Record<"fa" | "en", SiteContent> = {
   fa: {
     dir: "rtl",
     logoAlt: "لوگوی فیکسنس",
-    phone: { display: "021-12345678", tel: "02112345678" },
+    phone: { display: "۰۲۱-۱۲۳۴۵۶۷۸", tel: "02112345678" },
     socials: {
       instagram: "https://instagram.com/YOUR_INSTAGRAM_ID",
       telegram: "https://t.me/YOUR_TELEGRAM_ID",
@@ -17,34 +16,37 @@ export const content: Record<"fa" | "en", SiteContent> = {
       links: [
         { id: "services", label: "خدمات" },
         { id: "stats", label: "آمار" },
+        { id: "experts", label: "متخصصان" },
         { id: "testimonials", label: "نظرات" },
-        { id: "faq", label: "سوالات" },
+        { id: "faq", label: "سؤالات متداول" },
         { id: "contact", label: "تماس" },
       ],
       cta: "درخواست تعمیر",
     },
     hero: {
-      badge: "مصطفی قابل و علی محمدی تعمیرکار خبره ",
+      badge: "اعزام تکنسین مجرب تعمیر لوازم خانگی",
       titleStart: "تعمیر تخصصی",
       titleHighlight: "یخچال و لباسشویی",
       titleEnd: "در محل شما",
       description:
-        "فیکسنس با تکنسین‌های مجرب و قطعات اورجینال، لوازم خانگی شما را در کوتاه‌ترین زمان و با ضمانت‌نامه معتبر تعمیر می‌کند.",
+        "فیکسنس با تکنسین‌های مجرب و قطعات اصلی، لوازم خانگی شما را در کوتاه‌ترین زمان و با ضمانت‌نامه معتبر تعمیر می‌کند.",
       primaryCta: "تماس فوری",
       secondaryCta: "مشاوره رایگان",
-      trustPoints: ["اعزام سریع", "ضمانت‌نامه کتبی", "قطعات اورجینال"],
+      trustPoints: ["اعزام سریع", "ضمانت‌نامه کتبی", "قطعات اصلی"],
     },
     services: {
       eyebrow: "خدمات ما",
-      title: "چه خدماتی ارائه می‌دهیم؟",
-      subtitle: "تعمیر تخصصی انواع لوازم خانگی با به‌روزترین تجهیزات عیب‌یابی",
+      title: "تعمیرات تخصصی لوازم خانگی",
+      subtitle:
+        "از عیب‌یابی تا تعمیر نهایی، همه‌چیز با ابزار تخصصی و ضمانت معتبر انجام می‌شود.",
       items: [
         {
-          icon: "snowflake",
+          icon: "refrigerator",
           title: "تعمیر یخچال و فریزر",
-          description: "رفع کامل عیب سیستم برودتی، کمپرسور و برد الکترونیکی",
+          description:
+            "رفع ایراد سیستم سرمایش، کمپرسور، برد و نشتی گاز انواع یخچال و فریزر",
           features: [
-            "عیب‌یابی دقیق",
+            "عیب‌یابی دقیق در محل",
             "تعمیر کمپرسور و برد",
             "سرویس گاز و شارژ مبرد",
           ],
@@ -53,22 +55,22 @@ export const content: Record<"fa" | "en", SiteContent> = {
           icon: "washing",
           title: "تعمیر ماشین لباسشویی",
           description:
-            "تعمیر تخصصی موتور، برد و سیستم آبگیری انواع ماشین لباسشویی",
+            "تعمیر تخصصی موتور، برد، پمپ تخلیه و سیستم آبگیری انواع لباسشویی",
           features: [
             "تعمیر موتور و بلبرینگ",
-            "رفع مشکل برد و برنامه‌ریزی",
+            "رفع ایراد برد و برنامه",
             "عیب‌یابی آبگیری و تخلیه",
           ],
         },
         {
-          icon: "shield",
-          title: "قطعات اورجینال و ضمانت",
+          icon: "wrench",
+          title: "قطعات اصلی و ضمانت تعمیر",
           description:
-            "تامین قطعات اصلی با ضمانت‌نامه کتبی برای اطمینان خاطر شما",
+            "استفاده از قطعات اصلی و ارائه ضمانت‌نامه کتبی برای آرامش خاطر شما",
           features: [
-            "قطعات ۱۰۰٪ اورجینال",
+            "قطعات ۱۰۰٪ اصلی",
             "ضمانت‌نامه معتبر",
-            "خدمات پس از تعمیر",
+            "پشتیبانی پس از تعمیر",
           ],
         },
       ],
@@ -77,11 +79,55 @@ export const content: Record<"fa" | "en", SiteContent> = {
       items: [
         { value: 5000, suffix: "+", label: "تعمیر موفق" },
         { value: 12, suffix: "+", label: "سال تجربه" },
-        { value: 98, suffix: "٪", label: "رضایت مشتری" },
+        { value: 98, suffix: "٪", label: "رضایت مشتریان" },
+      ],
+    },
+    experts: {
+      eyebrow: "تیم متخصصان",
+      title: "کارشناسانی که دستگاه شما را می‌شناسند",
+      subtitle:
+        "هر درخواست توسط متخصص همان حوزه بررسی می‌شود تا تعمیر سریع، دقیق و ماندگار باشد.",
+      items: [
+        {
+          name: "علی محمدی",
+          role: "سرپرست تعمیرات یخچال",
+          specialty: "سیستم سرمایش و کمپرسور",
+          experience: "۱۲ سال تجربه",
+          features: [
+            "تشخیص نشتی و افت سرمایش",
+            "تعمیر کمپرسور و برد اصلی",
+            "اعزام سریع برای خرابی‌های فوری",
+          ],
+          icon: "refrigerator",
+        },
+        {
+          name: "مصطفی قایل",
+          role: "متخصص برد و برق لوازم خانگی",
+          specialty: "برد الکترونیکی لباسشویی",
+          experience: "۱۰ سال تجربه",
+          features: [
+            "عیب‌یابی خطاهای پیچیده برد",
+            "تعمیر تخصصی مدار و سنسورها",
+            "تست کامل دستگاه پس از تعمیر",
+          ],
+          icon: "wrench",
+        },
+        {
+          name: "مهیار محمدی",
+          role: "متخصص مکانیک لباسشویی",
+          specialty: "موتور، بلبرینگ و تخلیه",
+          experience: "۸ سال تجربه",
+          features: [
+            "رفع لرزش و صدای غیرعادی",
+            "تعمیر موتور و تعویض بلبرینگ",
+            "ضمانت کیفیت قطعه و اجرت",
+          ],
+          icon: "washing",
+        },
       ],
     },
     brands: {
-      title: "تعمیر تخصصی تمام برندها",
+      title: "تعمیر تخصصی همه برندها",
       items: [
         "SAMSUNG",
         "LG",
@@ -100,50 +146,50 @@ export const content: Record<"fa" | "en", SiteContent> = {
         "TOSHIBA",
         "HAIER",
         "CANDY",
-        "ARÇELIK",
+        "ARÇELİK",
       ],
     },
     testimonials: {
       eyebrow: "نظرات مشتریان",
       title: "مشتریان درباره ما چه می‌گویند؟",
-      subtitle: "اعتماد شما، بزرگترین سرمایه ماست",
+      subtitle: "اعتماد شما، بزرگ‌ترین سرمایه ماست",
       items: [
         {
           name: "علی رضایی",
           role: "مشتری",
-          text: "تکنسین خیلی سریع اعزام شد و یخچال‌مون رو همون روز تعمیر کرد. واقعاً حرفه‌ای و باانصاف بودن.",
+          text: "تکنسین خیلی سریع اعزام شد و یخچال‌مان را همان روز تعمیر کرد. واقعاً حرفه‌ای و منصف بودند.",
         },
         {
           name: "الهام کریمی",
           role: "مشتری",
-          text: "قطعات اورجینال استفاده کردن و ضمانت‌نامه هم دادن. بعد از تعمیر، خیالم کاملاً راحت شد.",
+          text: "از قطعات اصلی استفاده کردند و ضمانت‌نامه هم دادند. بعد از تعمیر کاملاً خیال‌مان راحت شد.",
         },
         {
           name: "مهدی امینی",
           role: "مشتری",
-          text: "ماشین لباسشویی‌مون مشکل برد داشت. دقیق عیب‌یابی کردن و درجا تعمیر شد. قیمت هم منصفانه بود.",
+          text: "ماشین لباسشویی ما مشکل برد داشت. دقیق عیب‌یابی و همان‌جا تعمیر شد؛ قیمت هم منصفانه بود.",
         },
       ],
     },
     faq: {
-      eyebrow: "سوالات متداول",
-      title: "پاسخ سوالات شما",
+      eyebrow: "سؤالات متداول",
+      title: "پاسخ سؤالات شما",
       subtitle: "هر آنچه باید پیش از درخواست تعمیر بدانید",
       items: [
         {
           question: "آیا تعمیر در محل انجام می‌شود؟",
           answer:
-            "بله، تکنسین‌های فیکسنس با تجهیزات کامل به محل شما اعزام می‌شوند و تعمیر در همان محل انجام می‌شود؛ مگر اینکه دستگاه نیاز به انتقال به کارگاه داشته باشد.",
+            "بله، تکنسین‌های فیکسنس با تجهیزات کامل به محل شما اعزام می‌شوند و تعمیر در همان‌جا انجام می‌شود؛ مگر اینکه دستگاه نیاز به انتقال به کارگاه داشته باشد.",
         },
         {
-          question: "قطعات استفاده‌شده اورجینال هستند؟",
+          question: "قطعات استفاده‌شده اصلی هستند؟",
           answer:
-            "بله، تمام قطعات استفاده‌شده اورجینال بوده و همراه با ضمانت‌نامه کتبی ارائه می‌شوند تا از اصالت و کیفیت آن‌ها اطمینان کامل داشته باشید.",
+            "بله، همه قطعات استفاده‌شده اصلی هستند و همراه با ضمانت‌نامه کتبی ارائه می‌شوند تا از اصالت و کیفیت آن‌ها مطمئن باشید.",
         },
         {
-          question: "زمان اعزام تکنسین چقدر طول می‌کشد؟",
+          question: "اعزام تکنسین چقدر زمان می‌برد؟",
           answer:
-            "درخواست‌ها معمولاً در سریع‌ترین زمان ممکن و غالباً ظرف ۲ تا ۳ ساعت کاری پاسخ‌داده می‌شوند. زمان دقیق پس از ثبت درخواست هماهنگ خواهد شد.",
+            "درخواست‌ها معمولاً در سریع‌ترین زمان ممکن و اغلب طی ۲ تا ۳ ساعت کاری پاسخ داده می‌شوند. زمان دقیق پس از ثبت درخواست هماهنگ خواهد شد.",
         },
       ],
     },
@@ -151,8 +197,9 @@ export const content: Record<"fa" | "en", SiteContent> = {
       eyebrow: "تماس با ما",
       title: "همین حالا درخواست خود را ثبت کنید",
       subtitle: "کارشناسان ما در کوتاه‌ترین زمان با شما تماس می‌گیرند",
-      ctaTitle: "دستگاه شما خراب شده؟",
-      ctaDescription: "همین حالا تماس بگیرید و تعمیر را به متخصصان بسپارید.",
+      ctaTitle: "دستگاه شما خراب شده است؟",
+      ctaDescription:
+        "همین حالا تماس بگیرید و تعمیر دستگاه را به متخصصان بسپارید.",
       callNow: "تماس فوری",
       whatsapp: "واتساپ",
       form: {
@@ -168,18 +215,18 @@ export const content: Record<"fa" | "en", SiteContent> = {
         phoneLabel: "شماره تماس",
         hoursLabel: "ساعات کاری",
         hoursValue: "شنبه تا پنجشنبه، ۹ صبح تا ۹ شب",
-        locationLabel: "موقعیت",
+        locationLabel: "محدوده فعالیت",
         locationValue: "تهران، سراسر شهر",
       },
     },
     footer: {
       description:
-        "فیکسنس؛ مرجع تخصصی تعمیر لوازم خانگی با تکنسین‌های مجرب و قطعات اورجینال.",
+        "فیکسنس؛ مرکز تخصصی تعمیر لوازم خانگی با تکنسین‌های مجرب و قطعات اصلی.",
       quickLinks: "دسترسی سریع",
       contactInfo: "اطلاعات تماس",
       followUs: "ما را دنبال کنید",
-      copyright: "© 2026 فیکسنس",
-      rights: "تمام حقوق محفوظ است.",
+      copyright: "© ۲۰۲۶ فیکسنس",
+      rights: "تمامی حقوق محفوظ است.",
     },
   },
 
@@ -198,6 +245,7 @@ export const content: Record<"fa" | "en", SiteContent> = {
       links: [
         { id: "services", label: "Services" },
         { id: "stats", label: "Stats" },
+        { id: "experts", label: "Experts" },
         { id: "testimonials", label: "Reviews" },
         { id: "faq", label: "FAQ" },
         { id: "contact", label: "Contact" },
@@ -217,17 +265,17 @@ export const content: Record<"fa" | "en", SiteContent> = {
     },
     services: {
       eyebrow: "Our Services",
-      title: "What do we offer?",
+      title: "Specialized home appliance repair",
       subtitle:
-        "Specialized appliance repair with the latest diagnostic equipment",
+        "From diagnosis to final testing, every repair uses specialist tools and a written warranty.",
       items: [
         {
-          icon: "snowflake",
+          icon: "refrigerator",
           title: "Refrigerator & Freezer Repair",
           description:
-            "Complete repair of cooling systems, compressors and electronic boards",
+            "Cooling, compressor, board and refrigerant-leak repair for all major refrigerator brands",
           features: [
-            "Precise diagnostics",
+            "On-site diagnostics",
             "Compressor & board repair",
             "Gas service & refrigerant charge",
           ],
@@ -236,7 +284,7 @@ export const content: Record<"fa" | "en", SiteContent> = {
           icon: "washing",
           title: "Washing Machine Repair",
           description:
-            "Specialized repair of motors, boards and water systems for all washers",
+            "Specialized repair of motors, boards, pumps and water systems for all washers",
           features: [
             "Motor & bearing repair",
             "Board & program fixes",
@@ -244,10 +292,10 @@ export const content: Record<"fa" | "en", SiteContent> = {
           ],
         },
         {
-          icon: "shield",
+          icon: "wrench",
           title: "Genuine Parts & Warranty",
           description:
-            "Original parts supplied with a written warranty for your peace of mind",
+            "Original parts supplied with a written warranty for dependable repairs",
           features: [
             "100% original parts",
             "Valid written warranty",
@@ -261,6 +309,50 @@ export const content: Record<"fa" | "en", SiteContent> = {
         { value: 5000, suffix: "+", label: "Successful Repairs" },
         { value: 12, suffix: "+", label: "Years Experience" },
         { value: 98, suffix: "%", label: "Customer Satisfaction" },
+      ],
+    },
+    experts: {
+      eyebrow: "Our Specialists",
+      title: "Technicians who know your appliance",
+      subtitle:
+        "Every request is matched with the specialist best suited to diagnose and repair it.",
+      items: [
+        {
+          name: "Ali Mohammadi",
+          role: "Refrigerator Repair Lead",
+          specialty: "Cooling systems & compressors",
+          experience: "12 years of experience",
+          features: [
+            "Leak and cooling-loss diagnosis",
+            "Compressor and main-board repair",
+            "Fast dispatch for urgent failures",
+          ],
+          icon: "refrigerator",
+        },
+        {
+          name: "Mostafa Ghaeil",
+          role: "Appliance Electrical Specialist",
+          specialty: "Washer control boards",
+          experience: "10 years of experience",
+          features: [
+            "Complex board-error diagnosis",
+            "Circuit and sensor repair",
+            "Full post-repair device testing",
+          ],
+          icon: "wrench",
+        },
+        {
+          name: "Mahyar Mohammadi",
+          role: "Washing Machine Mechanic",
+          specialty: "Motors, bearings & drainage",
+          experience: "8 years of experience",
+          features: [
+            "Vibration and noise correction",
+            "Motor and bearing replacement",
+            "Part and labor quality warranty",
+          ],
+          icon: "washing",
+        },
       ],
     },
     brands: {
@@ -283,10 +375,9 @@ export const content: Record<"fa" | "en", SiteContent> = {
         "TOSHIBA",
         "HAIER",
         "CANDY",
-        "ARÇELIK",
+        "ARÇELİK",
       ],
     },
-
     testimonials: {
       eyebrow: "Testimonials",
       title: "What our customers say",

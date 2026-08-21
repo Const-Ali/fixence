@@ -1,54 +1,54 @@
 // src/components/Stats.tsx
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { memo, useMemo } from "react";
 
 import { useApp } from "../context/AppContext";
 import { useCountUp } from "../hooks/useCountUp";
-import { fadeUp, staggerContainer } from "../lib/motion";
+import { useReveal } from "../hooks/useReveal";
 
-function StatCard({
-  value,
-  suffix,
-  label,
-}: {
+interface StatCardProps {
   value: number;
   suffix: string;
   label: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  const count = useCountUp(value, inView);
+}
+
+const StatCard = memo(function StatCard({
+  value,
+  suffix,
+  label,
+}: StatCardProps) {
+  const { ref, isVisible } = useReveal<HTMLDivElement>({
+    rootMargin: "-60px",
+  });
+  const count = useCountUp(value, isVisible);
+  const numberFormatter = useMemo(() => new Intl.NumberFormat("en-US"), []);
 
   return (
-    <motion.div ref={ref} variants={fadeUp} className="text-center">
+    <div
+      ref={ref}
+      className={`reveal text-center ${isVisible ? "reveal-visible" : ""}`}
+    >
       <div className="text-4xl font-black tabular-nums text-slate-900 md:text-5xl dark:text-white">
-        {count.toLocaleString("en-US")}
+        {numberFormatter.format(count)}
         <span className="text-blue-600 dark:text-blue-400">{suffix}</span>
       </div>
       <div className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">
         {label}
       </div>
-    </motion.div>
+    </div>
   );
-}
+});
 
 export function Stats() {
   const { t } = useApp();
 
   return (
-    <section id="stats" className="py-16">
+    <section id="stats" aria-label={t.nav.links[1]?.label} className="py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-3 gap-6 rounded-3xl border border-slate-200 bg-white/60 p-10 backdrop-blur dark:border-white/10 dark:bg-white/5"
-        >
+        <div className="grid grid-cols-3 gap-6 rounded-3xl border border-slate-200 bg-white/60 p-10 backdrop-blur dark:border-white/10 dark:bg-white/5">
           {t.stats.items.map((stat) => (
             <StatCard key={stat.label} {...stat} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

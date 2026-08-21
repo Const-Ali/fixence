@@ -1,11 +1,15 @@
 // src/hooks/useLanguage.ts
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { Language } from "../types";
 
 const LANG_KEY = "fixence-lang";
 
 function getInitialLang(): Language {
-  return localStorage.getItem(LANG_KEY) === "en" ? "en" : "fa";
+  try {
+    return window.localStorage.getItem(LANG_KEY) === "en" ? "en" : "fa";
+  } catch {
+    return "fa";
+  }
 }
 
 export function useLanguage() {
@@ -14,10 +18,28 @@ export function useLanguage() {
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
-    localStorage.setItem(LANG_KEY, lang);
+
+    try {
+      window.localStorage.setItem(LANG_KEY, lang);
+    } catch {
+      // Storage can be unavailable in privacy-restricted browsing contexts.
+    }
   }, [lang]);
 
-  const toggleLang = () => setLang((l) => (l === "fa" ? "en" : "fa"));
+  useEffect(() => {
+    const onStorage = (event: StorageEvent) => {
+      if (event.key !== LANG_KEY) return;
+      setLang(event.newValue === "en" ? "en" : "fa");
+    };
+
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
+
+  const toggleLang = useCallback(
+    () => setLang((current) => (current === "fa" ? "en" : "fa")),
+    [],
+  );
 
   return { lang, toggleLang };
 }

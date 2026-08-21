@@ -1,7 +1,8 @@
 // src/types.ts
 export type Language = "fa" | "en";
 export type Theme = "light" | "dark";
-export type ServiceIcon = "snowflake" | "washing" | "shield";
+export type ServiceIcon = "refrigerator" | "washing" | "wrench";
+export type ExpertIcon = "refrigerator" | "washing" | "wrench";
 
 export interface NavLink {
   id: string;
@@ -32,6 +33,15 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface ExpertItem {
+  name: string;
+  role: string;
+  specialty: string;
+  experience: string;
+  features: string[];
+  icon: ExpertIcon;
+}
+
 export interface SiteContent {
   dir: "rtl" | "ltr";
   nav: {
@@ -56,6 +66,12 @@ export interface SiteContent {
   };
   stats: {
     items: StatItem[];
+  };
+  experts: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: ExpertItem[];
   };
   brands: {
     title: string;
