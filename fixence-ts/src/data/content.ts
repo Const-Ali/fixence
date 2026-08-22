@@ -4,7 +4,10 @@ export const content: Record<"fa" | "en", SiteContent> = {
   fa: {
     dir: "rtl",
     logoAlt: "لوگوی فیکسنس",
-    phone: { display: "۰۲۱-۱۲۳۴۵۶۷۸", tel: "0915 402 50 33" },
+    phone: {
+      display: "۰۹۱۵-۴۰۲‌‌۵۰‌‌۳۳",
+      tel: "0915 402 50 33",
+    },
     socials: {
       instagram: "https://instagram.com/YOUR_INSTAGRAM_ID",
       telegram: "https://t.me/YOUR_TELEGRAM_ID",
@@ -219,7 +222,7 @@ export const content: Record<"fa" | "en", SiteContent> = {
         hoursLabel: "ساعات کاری",
         hoursValue: "شنبه تا پنجشنبه، ۹ صبح تا ۹ شب",
         locationLabel: "محدوده فعالیت",
-        locationValue: "تهران، سراسر شهر",
+        locationValue: "مشهد، سراسر شهر",
       },
     },
     footer: {
@@ -450,7 +453,7 @@ export const content: Record<"fa" | "en", SiteContent> = {
         hoursLabel: "Working Hours",
         hoursValue: "Sat–Thu, 9 AM to 9 PM",
         locationLabel: "Location",
-        locationValue: "Tehran, citywide",
+        locationValue: "Mashhad, citywide",
       },
     },
     footer: {
