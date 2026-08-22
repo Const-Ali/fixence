@@ -99,6 +99,7 @@ export const content: Record<"fa" | "en", SiteContent> = {
             "اعزام سریع برای خرابی‌های فوری",
           ],
           icon: "refrigerator",
+          image: "ali",
         },
         {
           name: "مصطفی قایل",
@@ -111,6 +112,7 @@ export const content: Record<"fa" | "en", SiteContent> = {
             "تست کامل دستگاه پس از تعمیر",
           ],
           icon: "wrench",
+          image: "mostafa",
         },
         {
           name: "مهیار محمدی",
@@ -123,6 +125,7 @@ export const content: Record<"fa" | "en", SiteContent> = {
             "ضمانت کیفیت قطعه و اجرت",
           ],
           icon: "washing",
+          image: "mahyar",
         },
       ],
     },
@@ -328,6 +331,7 @@ export const content: Record<"fa" | "en", SiteContent> = {
             "Fast dispatch for urgent failures",
           ],
           icon: "refrigerator",
+          image: "ali",
         },
         {
           name: "Mostafa Ghaeil",
@@ -340,6 +344,7 @@ export const content: Record<"fa" | "en", SiteContent> = {
             "Full post-repair device testing",
           ],
           icon: "wrench",
+          image: "mostafa",
         },
         {
           name: "Mahyar Mohammadi",
@@ -352,6 +357,7 @@ export const content: Record<"fa" | "en", SiteContent> = {
             "Part and labor quality warranty",
           ],
           icon: "washing",
+          image: "mahyar",
         },
       ],
     },

@@ -6,13 +6,22 @@ import WashingMachine from "lucide-react/dist/esm/icons/washing-machine.mjs";
 import Wrench from "lucide-react/dist/esm/icons/wrench.mjs";
 import { useApp } from "../context/AppContext";
 import { useReveal } from "../hooks/useReveal";
-import type { ExpertIcon, ExpertItem } from "../types";
+import aliImage from "../assets/experts/ali-mohammadi.webp";
+import mahyarImage from "../assets/experts/mahyar-mohammadi.webp";
+import mostafaImage from "../assets/experts/mostafa-ghaeil.webp";
+import type { ExpertIcon, ExpertImage, ExpertItem } from "../types";
 import { SectionTitle } from "./ui/SectionTitle";
 
 const ICONS: Record<ExpertIcon, typeof Refrigerator> = {
   refrigerator: Refrigerator,
   washing: WashingMachine,
   wrench: Wrench,
+};
+
+const IMAGES: Record<ExpertImage, string> = {
+  ali: aliImage,
+  mostafa: mostafaImage,
+  mahyar: mahyarImage,
 };
 
 interface ExpertCardProps {
@@ -37,14 +46,30 @@ const ExpertCard = memo(function ExpertCard({
         isVisible ? "reveal-visible" : ""
       }`}
     >
+      <div className="relative overflow-hidden rounded-2xl bg-slate-900">
+        <img
+          src={IMAGES[expert.image]}
+          alt={`${expert.name}، ${expert.role}`}
+          width="640"
+          height="640"
+          loading="lazy"
+          decoding="async"
+          className="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/60 to-transparent"
+        />
+      </div>
+
       <div className="flex items-start justify-between gap-4">
-        <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition group-hover:scale-105 dark:bg-blue-500/10 dark:text-blue-400">
+        <div className="-mt-8 relative z-10 inline-flex h-14 w-14 items-center justify-center rounded-2xl border-4 border-white bg-blue-50 text-blue-600 transition group-hover:scale-105 dark:border-slate-900 dark:bg-blue-500/10 dark:text-blue-400">
           <Icon aria-hidden="true" className="h-7 w-7" />
         </div>
-        <BadgeCheck
-          aria-label={expert.experience}
-          className="h-6 w-6 shrink-0 text-emerald-500"
-        />
+        <span className="flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+          <BadgeCheck aria-hidden="true" className="h-5 w-5 shrink-0" />
+          <span>{expert.experience}</span>
+        </span>
       </div>
 
       <h3 className="mt-6 text-xl font-bold text-slate-900 dark:text-white">
@@ -73,7 +98,7 @@ const ExpertCard = memo(function ExpertCard({
       </ul>
 
       <div className="mt-6 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-500 dark:border-white/10 dark:text-slate-400">
-        {expert.experience}
+        {expert.specialty}
       </div>
     </article>
   );

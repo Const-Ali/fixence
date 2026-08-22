@@ -1,50 +1,65 @@
+import { memo } from "react";
+import BadgeCheck from "lucide-react/dist/esm/icons/badge-check.mjs";
 import { useApp } from "../context/AppContext";
+import { SectionTitle } from "./ui/SectionTitle";
 
-function BrandRow({ brands, hidden = false }: { brands: string[]; hidden?: boolean }) {
-  return (
-    <div
-      aria-hidden={hidden}
-      className="flex shrink-0 flex-nowrap gap-8 pr-8"
-    >
-      {brands.map((brand, index) => (
-        <div
-          key={`${brand}-${index}`}
-          className="flex shrink-0 items-center justify-center rounded-xl border border-white/5 bg-white/[0.03] px-10 py-5 text-xl font-bold tracking-widest text-white/30"
-        >
-          {brand}
-        </div>
-      ))}
-    </div>
-  );
+interface BrandCardProps {
+  brand: string;
 }
 
+const BrandCard = memo(function BrandCard({ brand }: BrandCardProps) {
+  return (
+    <li>
+      <div className="flex min-h-20 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-white transition hover:border-cyan-400/50 hover:bg-white/[0.08]">
+        <span
+          aria-hidden="true"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/30 to-cyan-400/20 text-sm font-black text-cyan-200"
+        >
+          {brand.charAt(0)}
+        </span>
+        <span className="min-w-0 flex-1 truncate text-sm font-bold tracking-wide text-white/80">
+          {brand}
+        </span>
+        <BadgeCheck
+          aria-hidden="true"
+          className="h-4 w-4 shrink-0 text-cyan-300/70"
+        />
+      </div>
+    </li>
+  );
+});
+
 export function BrandsMarquee() {
-  const { t } = useApp();
-  const brands = t.brands.items;
+  const { t, lang } = useApp();
 
   return (
     <section
       aria-labelledby="brands-title"
-      className="relative w-full overflow-hidden bg-[#020617] py-10"
+      className="bg-slate-950 py-16"
     >
-      <h2 id="brands-title" className="sr-only">
-        {t.brands.title}
-      </h2>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionTitle
+          eyebrow={
+            lang === "fa" ? "برندهای تحت پوشش" : "Supported brands"
+          }
+          title={t.brands.title}
+          subtitle={
+            lang === "fa"
+              ? "پوشش تعمیرات تخصصی برای برندهای محبوب لوازم خانگی"
+              : "Specialized repair coverage for popular home-appliance brands"
+          }
+          titleId="brands-title"
+          tone="dark"
+        />
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-[#020617] to-transparent"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-[#020617] to-transparent"
-      />
-
-      <div className="flex w-max" dir="ltr">
-        <div className="brands-marquee-track flex w-max">
-          <BrandRow brands={brands} />
-          <BrandRow brands={brands} hidden />
-        </div>
+        <ul
+          aria-label={t.brands.title}
+          className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+        >
+          {t.brands.items.map((brand) => (
+            <BrandCard key={brand} brand={brand} />
+          ))}
+        </ul>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@ export type Language = "fa" | "en";
 export type Theme = "light" | "dark";
 export type ServiceIcon = "refrigerator" | "washing" | "wrench";
 export type ExpertIcon = "refrigerator" | "washing" | "wrench";
+export type ExpertImage = "ali" | "mostafa" | "mahyar";
 
 export interface NavLink {
   id: string;
@@ -40,6 +41,7 @@ export interface ExpertItem {
   experience: string;
   features: string[];
   icon: ExpertIcon;
+  image: ExpertImage;
 }
 
 export interface SiteContent {

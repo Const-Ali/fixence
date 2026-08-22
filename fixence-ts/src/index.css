@@ -59,28 +59,6 @@ body {
   }
 }
 
-/* The track contains two identical sets of brands, so a -50% translation
-   loops without a visible jump. */
-@keyframes brands-marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-.brands-marquee-track {
-  animation: brands-marquee 30s linear infinite;
-  will-change: transform;
-}
-
-.brands-marquee-track:hover,
-.brands-marquee-track:focus-within {
-  animation-play-state: paused;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -94,8 +72,4 @@ body {
     transition: none;
   }
 
-  .brands-marquee-track {
-    animation: none;
-    transform: none;
-  }
 }
